@@ -1,0 +1,9 @@
+---
+- hosts: all
+  remote_user: vagrant
+  become: sudo
+  connection: ssh
+  gather_facts: no
+  tasks:
+  - name: Update all servers
+    apt: name=update update_cache=yes

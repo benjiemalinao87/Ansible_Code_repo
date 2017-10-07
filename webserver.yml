@@ -1,0 +1,15 @@
+---
+- hosts: webserver
+  remote_user: vagrant
+  become: yes
+  become_method: sudo
+  connection: ssh
+  gather_facts: yes
+  tasks:
+   - name: Install web components
+     apt: name={{item}} state=present update_cache=yes
+     with_items:
+      - apache2
+      - python-pip
+      - python-virtualenv
+     

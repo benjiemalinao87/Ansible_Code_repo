@@ -1,7 +1,9 @@
 ---
-- hosts: DBserver
-  remote_user: ansible
+- hosts: dbserver
   become: true
-  tasks:
-   - name: install mysql-server
-     apt: name=mysql-server state=present update_cache=yes
+  tasks: 
+    - name: install mysql-server
+      apt: name=mysql-server state=present update_cache=yes
+    
+    - name: Ensure mysql-server started
+      service: name=mysql state=started update_cache=yes
