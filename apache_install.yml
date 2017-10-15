@@ -1,9 +1,0 @@
---- #  install and start apache
-- hosts: control
-  remote_user: ansible
-  tasks:
-    - name: install httpd
-      apt-get:
-      -name:  pkg=httpd state= latest
-    
-

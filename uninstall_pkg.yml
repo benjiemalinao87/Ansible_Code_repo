@@ -1,0 +1,3 @@
+ command: ansible [server_name_here] -s -m apt -a "name=[pkg_name state=absent]"
+
+	  ansible dbserver -s -m apt -a "name=telnet state=absen"

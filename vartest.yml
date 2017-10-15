@@ -1,0 +1,16 @@
+--- # This is testing how variable work in the vars section of a playbook
+- hosts: '{{myhosts}}'
+  remote_user: vagrant
+  become: yes
+  become_method: sudo
+  connection: ssh
+  gather_facts: '{{gather}}'
+  vars: 
+    myhosts: dbserver
+    gather: yes
+    pkg: telnet
+  tasks: 
+  - name: Install the indicated software
+    apt:
+      name: '{{pkg}}'
+      state: latest
